@@ -5,21 +5,33 @@
 @import './utils/utils';
 
 // Base styles
+
 @import './base/common';
+@import './base/card-set';
+
+//  Layouts styles
+@import './leyouts/header';
+@import './leyouts/hero';
+@import './leyouts/benefits';
+@import './leyouts/services';
+@import './leyouts/customers';
+@import './leyouts/team';
+@import './leyouts/footer';
+@import './leyouts/portfolio';
+
 
 //  Components styles
-@import './components/header';
+
+
 @import './components/logo';
 @import './components/nav';
 @import './components/contacts';
-@import './components/hero';
 @import './components/btns';
 @import './components/backdrop';
 @import './components/modal';
 @import './components/form';
-@import './components/benefits';
-@import './components/services';
-@import './components/team';
-@import './components/customers';
-@import './components/footer';
-@import './components/portfolio';
+
+
+
+
+

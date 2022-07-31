@@ -18,15 +18,36 @@
     />
     <link rel="stylesheet" href="./css/main.min.css" />
   </head>
-  <body>
+  <body class="body" data-body>
     <!-- Header -->
     <header class="header">
       <div class="container header__container">
+        <a class="logo header__logo" href="./index.html">
+          <span class="logo__first-element">Web</span>Studio</a
+        >
         <!-- Navigation -->
-        <nav class="nav-container">
-          <a class="logo header__logo" href="./index.html">
-            <span class="logo__first-element">Web</span>Studio</a
+        <button
+          class="btn-menu"
+          type="button"
+          aria-expanded="false"
+          aria-controls="menu-container"
+          data-menu-button
+        >
+          <svg
+            class="btn-menu__icon"
+            width="40"
+            height="40"
+            aria-label="Переключатель мобильного меню"
           >
+            <use class="icon-menu" href="./images/icons.svg#icon-menu"></use>
+            <use
+              class="icon-cross"
+              href="./images/icons.svg#icon-close-black"
+            ></use>
+          </svg>
+        </button>
+
+        <div class="menu" id="menu-container" data-menu>
           <ul class="nav">
             <li class="nav__item">
               <a class="nav__link nav__link--header" href="./index.html"
@@ -46,26 +67,41 @@
               >
             </li>
           </ul>
-        </nav>
-        <!--Contacts-->
-        <ul class="contact head__contact">
-          <li class="contact__item">
-            <a class="contact__link" href="mailto:info@devstudio.com">
-              <svg class="contact__icon" width="16" height="12">
-                <use href="./images/icons.svg#icon-envelope"></use>
-              </svg>
-              info@devstudio.com</a
-            >
-          </li>
-          <li class="contact__item">
-            <a class="contact__link" href="tel:+380961111111"
-              ><svg class="contact__icon" width="10" height="16">
-                <use href="./images/icons.svg#icon-smartphone"></use>
-              </svg>
-              +38 096 111 11 11
-            </a>
-          </li>
-        </ul>
+
+          <!--Contacts-->
+          <ul class="contact head__contact">
+            <li class="contact__item">
+              <a class="contact__link mail" href="mailto:info@devstudio.com">
+                <svg class="contact__icon" width="16" height="12">
+                  <use href="./images/icons.svg#icon-envelope"></use>
+                </svg>
+                info@devstudio.com</a
+              >
+            </li>
+            <li class="contact__item">
+              <a class="contact__link tel" href="tel:+380961111111"
+                ><svg class="contact__icon" width="10" height="16">
+                  <use href="./images/icons.svg#icon-smartphone"></use>
+                </svg>
+                +38 096 111 11 11
+              </a>
+            </li>
+          </ul>
+          <ul class="menu_social-list">
+            <li class="menu_social-item">
+              <a class="menu_social-link" href="">Instagram</a>
+            </li>
+            <li class="menu_social-item">
+              <a class="menu_social-link" href="">Twitter</a>
+            </li>
+            <li class="menu_social-item">
+              <a class="menu_social-link" href="">Facebook</a>
+            </li>
+            <li class="menu_social-item">
+              <a class="menu_social-link" href="">LinkedIn</a>
+            </li>
+          </ul>
+        </div>
       </div>
     </header>
     <!-- Main -->
@@ -83,16 +119,71 @@
             <li><button type="button" class="works-btn">Маркетинг</button></li>
           </ul>
           <!-- Work examples-->
-          <ul class="work-examples">
-            <li class="work-item">
+          <ul class="work-examples card-set">
+            <li class="work-item card-set__item">
               <a class="work-item-link" href="#">
                 <div class="work-item-popup">
-                  <img
-                    src="./images/works/works1.jpg"
-                    alt="Пример работы"
-                    width="370"
-                    height="294"
-                  />
+                  <picture>
+                    <!-- desktop screen -->
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/project-1_lg.webp    1x,
+                        ./images/works/project-1_lg@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/project-1_lg.jpg    1x,
+                        ./images/works/project-1_lg@2x.jpg 2x
+                      "
+                      type="image/jpg"
+                    />
+
+                    <!-- tablet screen -->
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/project-1_md.webp    1x,
+                        ./images/works/project-1_md@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/project-1_md.jpg    1x,
+                        ./images/works/project-1_md@2x.jpg 2x
+                      "
+                      type="image/jpg"
+                    />
+
+                    <!-- mobile screen -->
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/project-1_sm.webp    1x,
+                        ./images/works/project-1_sm@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/project-1_sm.jpg    1x,
+                        ./images/works/project-1_sm@2x.jpg 2x
+                      "
+                      type="image/jpg"
+                    />
+                    <img
+                      src="./images/works/works1.jpg"
+                      alt="Пример работы"
+                      width="370"
+                      height="294"
+                    />
+                  </picture>
                   <p class="works-title-info">
                     Ресурс предлагает комплексные предложения с разным уровнем
                     функционала и сервисов. Все это позволит посетителю получить
@@ -105,15 +196,71 @@
                 </div>
               </a>
             </li>
-            <li class="work-item">
+            <li class="work-item card-set__item">
               <a class="work-item-link" href="#">
                 <div class="work-item-popup">
-                  <img
-                    src="./images/works/works2.jpg"
-                    alt="Пример работы"
-                    width="370"
-                    height="294"
-                  />
+                  <picture>
+                    <!-- desktop screen -->
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/project-2_lg.webp    1x,
+                        ./images/works/project-2_lg@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/project-2_lg.jpg    1x,
+                        ./images/works/project-2_lg@2x.jpg 2x
+                      "
+                      type="image/jpg"
+                    />
+
+                    <!-- tablet screen -->
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/project-2_md.webp    1x,
+                        ./images/works/project-2_md@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/project-2_md.jpg    1x,
+                        ./images/works/project-2_md@2x.jpg 2x
+                      "
+                      type="image/jpg"
+                    />
+
+                    <!-- mobile screen -->
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/project-2_sm.webp    1x,
+                        ./images/works/project-2_sm@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/project-2_sm.jpg    1x,
+                        ./images/works/project-2_sm@2x.jpg 2x
+                      "
+                      type="image/jpg"
+                    />
+                    <img
+                      src="./images/works/works2.jpg"
+                      alt="Пример работы"
+                      width="370"
+                      height="294"
+                    />
+                  </picture>
+
                   <p class="works-title-info">
                     Ресурс предлагает комплексные предложения с разным уровнем
                     функционала и сервисов. Все это позволит посетителю получить
@@ -129,15 +276,71 @@
                 </div>
               </a>
             </li>
-            <li class="work-item">
+            <li class="work-item card-set__item">
               <a class="work-item-link" href="#">
                 <div class="work-item-popup">
-                  <img
-                    src="./images/works/works3.jpg"
-                    alt="Пример работы"
-                    width="370"
-                    height="294"
-                  />
+                  <picture>
+                    <!-- desktop screen -->
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/project-3_lg.webp    1x,
+                        ./images/works/project-3_lg@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/project-3_lg.jpg    1x,
+                        ./images/works/project-3_lg@2x.jpg 2x
+                      "
+                      type="image/jpg"
+                    />
+
+                    <!-- tablet screen -->
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/project-3_md.webp    1x,
+                        ./images/works/project-3_md@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/project-3_md.jpg    1x,
+                        ./images/works/project-3_md@2x.jpg 2x
+                      "
+                      type="image/jpg"
+                    />
+
+                    <!-- mobile screen -->
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/project-3_sm.webp    1x,
+                        ./images/works/project-3_sm@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/project-3_sm.jpg    1x,
+                        ./images/works/project-3_sm@2x.jpg 2x
+                      "
+                      type="image/jpg"
+                    />
+                    <img
+                      src="./images/works/works3.jpg"
+                      alt="Пример работы"
+                      width="370"
+                      height="294"
+                    />
+                  </picture>
+
                   <p class="works-title-info">
                     Ресурс предлагает комплексные предложения с разным уровнем
                     функционала и сервисов. Все это позволит посетителю получить
@@ -152,15 +355,71 @@
                 </div>
               </a>
             </li>
-            <li class="work-item">
+            <li class="work-item card-set__item">
               <a class="work-item-link" href="#">
                 <div class="work-item-popup">
-                  <img
-                    src="./images/works/works4.jpg"
-                    alt="Пример работы"
-                    width="370"
-                    height="294"
-                  />
+                  <picture>
+                    <!-- desktop screen -->
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/project-4_lg.webp    1x,
+                        ./images/works/project-4_lg@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/project-4_lg.jpg    1x,
+                        ./images/works/project-4_lg@2x.jpg 2x
+                      "
+                      type="image/jpg"
+                    />
+
+                    <!-- tablet screen -->
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/project-4_md.webp    1x,
+                        ./images/works/project-4_md@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/project-4_md.jpg    1x,
+                        ./images/works/project-4_md@2x.jpg 2x
+                      "
+                      type="image/jpg"
+                    />
+
+                    <!-- mobile screen -->
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/project-4_sm.webp    1x,
+                        ./images/works/project-4_sm@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/project-4_sm.jpg    1x,
+                        ./images/works/project-4_sm@2x.jpg 2x
+                      "
+                      type="image/jpg"
+                    />
+                    <img
+                      src="./images/works/works4.jpg"
+                      alt="Пример работы"
+                      width="370"
+                      height="294"
+                    />
+                  </picture>
+
                   <p class="works-title-info">
                     Ресурс предлагает комплексные предложения с разным уровнем
                     функционала и сервисов. Все это позволит посетителю получить
@@ -175,15 +434,71 @@
                 </div>
               </a>
             </li>
-            <li class="work-item">
+            <li class="work-item card-set__item">
               <a class="work-item-link" href="#">
                 <div class="work-item-popup">
-                  <img
-                    src="./images/works/works5.jpg"
-                    alt="Пример работы"
-                    width="370"
-                    height="294"
-                  />
+                  <picture>
+                    <!-- desktop screen -->
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/project-5_lg.webp    1x,
+                        ./images/works/project-5_lg@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/project-5_lg.jpg    1x,
+                        ./images/works/project-5_lg@2x.jpg 2x
+                      "
+                      type="image/jpg"
+                    />
+
+                    <!-- tablet screen -->
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/project-5_md.webp    1x,
+                        ./images/works/project-5_md@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/project-5_md.jpg    1x,
+                        ./images/works/project-5_md@2x.jpg 2x
+                      "
+                      type="image/jpg"
+                    />
+
+                    <!-- mobile screen -->
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/project-5_sm.webp    1x,
+                        ./images/works/project-5_sm@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/project-5_sm.jpg    1x,
+                        ./images/works/project-5_sm@2x.jpg 2x
+                      "
+                      type="image/jpg"
+                    />
+                    <img
+                      src="./images/works/works5.jpg"
+                      alt="Пример работы"
+                      width="370"
+                      height="294"
+                    />
+                  </picture>
+
                   <p class="works-title-info">
                     Ресурс предлагает комплексные предложения с разным уровнем
                     функционала и сервисов. Все это позволит посетителю получить
@@ -198,15 +513,71 @@
                 </div>
               </a>
             </li>
-            <li class="work-item">
+            <li class="work-item card-set__item">
               <a class="work-item-link" href="#">
                 <div class="work-item-popup">
-                  <img
-                    src="./images/works/works6.jpg"
-                    alt="Пример работы"
-                    width="370"
-                    height="294"
-                  />
+                  <picture>
+                    <!-- desktop screen -->
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/project-6_lg.webp    1x,
+                        ./images/works/project-6_lg@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/project-6_lg.jpg    1x,
+                        ./images/works/project-6_lg@2x.jpg 2x
+                      "
+                      type="image/jpg"
+                    />
+
+                    <!-- tablet screen -->
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/project-6_md.webp    1x,
+                        ./images/works/project-6_md@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/project-6_md.jpg    1x,
+                        ./images/works/project-6_md@2x.jpg 2x
+                      "
+                      type="image/jpg"
+                    />
+
+                    <!-- mobile screen -->
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/project-6_sm.webp    1x,
+                        ./images/works/project-6_sm@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/project-6_sm.jpg    1x,
+                        ./images/works/project-6_sm@2x.jpg 2x
+                      "
+                      type="image/jpg"
+                    />
+                    <img
+                      src="./images/works/works6.jpg"
+                      alt="Пример работы"
+                      width="370"
+                      height="294"
+                    />
+                  </picture>
+
                   <p class="works-title-info">
                     Ресурс предлагает комплексные предложения с разным уровнем
                     функционала и сервисов. Все это позволит посетителю получить
@@ -221,15 +592,71 @@
                 </div>
               </a>
             </li>
-            <li class="work-item">
+            <li class="work-item card-set__item">
               <a class="work-item-link" href="#">
                 <div class="work-item-popup">
-                  <img
-                    src="./images/works/works7.jpg"
-                    alt="Пример работы"
-                    width="370"
-                    height="294"
-                  />
+                  <picture>
+                    <!-- desktop screen -->
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/project-7_lg.webp    1x,
+                        ./images/works/project-7_lg@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/project-7_lg.jpg    1x,
+                        ./images/works/project-7_lg@2x.jpg 2x
+                      "
+                      type="image/jpg"
+                    />
+
+                    <!-- tablet screen -->
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/project-7_md.webp    1x,
+                        ./images/works/project-7_md@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/project-7_md.jpg    1x,
+                        ./images/works/project-7_md@2x.jpg 2x
+                      "
+                      type="image/jpg"
+                    />
+
+                    <!-- mobile screen -->
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/project-7_sm.webp    1x,
+                        ./images/works/project-7_sm@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/project-7_sm.jpg    1x,
+                        ./images/works/project-7_sm@2x.jpg 2x
+                      "
+                      type="image/jpg"
+                    />
+                    <img
+                      src="./images/works/works7.jpg"
+                      alt="Пример работы"
+                      width="370"
+                      height="294"
+                    />
+                  </picture>
+
                   <p class="works-title-info">
                     Ресурс предлагает комплексные предложения с разным уровнем
                     функционала и сервисов. Все это позволит посетителю получить
@@ -244,15 +671,71 @@
                 </div>
               </a>
             </li>
-            <li class="work-item">
+            <li class="work-item card-set__item">
               <a class="work-item-link" href="#">
                 <div class="work-item-popup">
-                  <img
-                    src="./images/works/works8.jpg"
-                    alt="Пример работы"
-                    width="370"
-                    height="294"
-                  />
+                  <picture>
+                    <!-- desktop screen -->
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/project-8_lg.webp    1x,
+                        ./images/works/project-8_lg@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/project-8_lg.jpg    1x,
+                        ./images/works/project-8_lg@2x.jpg 2x
+                      "
+                      type="image/jpg"
+                    />
+
+                    <!-- tablet screen -->
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/project-8_md.webp    1x,
+                        ./images/works/project-8_md@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/project-8_md.jpg    1x,
+                        ./images/works/project-8_md@2x.jpg 2x
+                      "
+                      type="image/jpg"
+                    />
+
+                    <!-- mobile screen -->
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/project-8_sm.webp    1x,
+                        ./images/works/project-8_sm@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/project-8_sm.jpg    1x,
+                        ./images/works/project-8_sm@2x.jpg 2x
+                      "
+                      type="image/jpg"
+                    />
+                    <img
+                      src="./images/works/works8.jpg"
+                      alt="Пример работы"
+                      width="370"
+                      height="294"
+                    />
+                  </picture>
+
                   <p class="works-title-info">
                     Ресурс предлагает комплексные предложения с разным уровнем
                     функционала и сервисов. Все это позволит посетителю получить
@@ -265,15 +748,71 @@
                 </div>
               </a>
             </li>
-            <li class="work-item">
+            <li class="work-item card-set__item">
               <a class="work-item-link" href="#">
                 <div class="work-item-popup">
-                  <img
-                    src="./images/works/works9.jpg"
-                    alt="Пример работы"
-                    width="370"
-                    height="294"
-                  />
+                  <picture>
+                    <!-- desktop screen -->
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/project-9_lg.webp    1x,
+                        ./images/works/project-9_lg@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 1200px)"
+                      srcset="
+                        ./images/works/project-9_lg.jpg    1x,
+                        ./images/works/project-9_lg@2x.jpg 2x
+                      "
+                      type="image/jpg"
+                    />
+
+                    <!-- tablet screen -->
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/project-9_md.webp    1x,
+                        ./images/works/project-9_md@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(min-width: 768px)"
+                      srcset="
+                        ./images/works/project-9_md.jpg    1x,
+                        ./images/works/project-9_md@2x.jpg 2x
+                      "
+                      type="image/jpg"
+                    />
+
+                    <!-- mobile screen -->
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/project-9_sm.webp    1x,
+                        ./images/works/project-9_sm@2x.webp 2x
+                      "
+                      type="image/webp"
+                    />
+                    <source
+                      media="(max-width: 767px)"
+                      srcset="
+                        ./images/works/project-9_sm.jpg    1x,
+                        ./images/works/project-9_sm@2x.jpg 2x
+                      "
+                      type="image/jpg"
+                    />
+                    <img
+                      src="./images/works/works9.jpg"
+                      alt="Пример работы"
+                      width="370"
+                      height="294"
+                    />
+                  </picture>
+
                   <p class="works-title-info">
                     Ресурс предлагает комплексные предложения с разным уровнем
                     функционала и сервисов. Все это позволит посетителю получить
@@ -401,5 +940,6 @@
         </div>
       </div>
     </footer>
+    <script src="./js/mobil-menu.js"></script>
   </body>
 </html>
