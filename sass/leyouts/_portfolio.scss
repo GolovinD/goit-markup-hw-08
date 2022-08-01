@@ -18,25 +18,23 @@
 
 .works-menu li:first-child {
 
-@media screen and (max-width: 767.5px) {
+    @media screen and (max-width: 767.5px) {
     margin-bottom: 15px;
     }
     
 }
 
-
-
-
 .work-examples {
---items: 1;
---indent: 30px;
+    --items: 1;
+    --indent: 30px;
 
-@media screen and (min-width: 768px) {
-    --items: 2;
+    @media screen and (min-width: 768px) {
+        --items: 2;
     }
-@media screen and (min-width: 1200px) {
-    --items: 3;
-}
+
+    @media screen and (min-width: 1200px) {
+        --items: 3;
+    }
 }
 
 .work-item {
@@ -46,7 +44,9 @@
 
 .work-item-link {
     position: relative;
-    display: block;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 
     transition: box-shadow var(--transform-anim);
 }
@@ -108,6 +108,8 @@
 }
 
 .work-item-info {
+    flex-grow: 1;
+
     padding: 20px 24px;
 
     border-right: 1px solid #eeeeee;

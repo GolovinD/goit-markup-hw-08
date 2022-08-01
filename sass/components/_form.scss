@@ -104,13 +104,9 @@ textarea {
     letter-spacing: 0.03em;
     color: var(--main-txt-color);
 
-    
-    
-        @media screen and (min-width: 1200px) {
-            font-size: 14px;
-        }
-
-
+    @media screen and (min-width: 1200px) {
+        font-size: 14px;
+    }
 }
 
 .checkbox-icon-off {
@@ -152,6 +148,4 @@ textarea {
 .agreement-doc {
     text-decoration: underline;
     color: var(--accent-color);
-
-
 }

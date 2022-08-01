@@ -1,22 +1,16 @@
 /* contacts */
 
 .contact {
-    
-   
 
+    &__link {
+        display: block;
+        font-size: 34px;
+        font-weight: 500;
+        line-height: 1.14;
+        letter-spacing: 0.02em;
+        color: var(--main-txt-color);
 
-&__link {
-    
-    display: block;
-    
-
-    font-size: 34px;
-    font-weight: 500;
-    line-height: 1.14;
-    letter-spacing: 0.02em;
-    color: var(--main-txt-color);
-
-    transition: color var(--transform-anim);
+        transition: color var(--transform-anim);
 
     @media screen and (min-width: 768px) {
         display: flex;
@@ -30,50 +24,50 @@
         font-size: 14px;
         padding: 32px 0px;
     }
-}
+    }
 
-&__link.tel {
-@media screen and (max-width: 767.5px) {
+    &__link.tel {
+        @media screen and (max-width: 767.5px) {
+            color: var(--accent-color);
+        }
+    }
+
+    &__link.mail {
+        @media screen and (max-width: 767.5px) {
+            font-size: 24px;
+        }
+    }
+
+    &__link:hover,
+    &__link:focus {
         color: var(--accent-color);
     }
-}
 
-&__link.mail {
-    @media screen and (max-width: 767.5px) {
-        font-size: 24px;
-    }
-}
-
-&__link:hover,
-&__link:focus {
-    color: var(--accent-color);
-}
-
-&__item {
-    color: var(--main-txt-color);
-@media screen and (max-width: 767.5px) {
-        display: block;
-    }
-
-}
-
-&__item:not(:first-child) {
-
-@media screen and (min-width: 1200px) {
-        margin-left: 50px;
-    }
-    
-}
-
-&__icon {
-display: none;
-    @media screen and (min-width: 768px) {
-        display: block;
-        margin-right: 10px;
-        fill: currentColor;   
+    &__item {
+        color: var(--main-txt-color);
+        
+        @media screen and (max-width: 767.5px) {
+            display: block;
         }
+    }
+
+    &__item:not(:first-child) {
+
+        @media screen and (min-width: 1200px) {
+            margin-left: 50px;
+        }    
+    }
+
+    &__icon {
+        display: none;
     
-}}
+        @media screen and (min-width: 768px) {
+            display: block;
+            margin-right: 10px;
+            fill: currentColor;   
+        }  
+    }
+}
 
 .head__contact {
 
@@ -82,23 +76,16 @@ display: none;
         flex-direction: column-reverse;
         gap: 32px;
         margin-bottom: 64px;
-
-        }
-        
-        
-
+    }       
 
     @media screen and (min-width: 768px) {
         display:block;
         margin-left: auto;
         font-size: 14px;
-        }
+    }
 
-@media screen and (min-width: 1200px) {
+    @media screen and (min-width: 1200px) {
         display: flex;
         font-size: 16px;
     }          
 }
-
-
-
